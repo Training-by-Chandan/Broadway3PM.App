@@ -22,13 +22,59 @@ namespace Broadway3PM
 
                 //Looping();
 
-                CastingExamples();
+                //CastingExamples();
+
+                //ClassExample();
+
+                OperatorOverloading();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
 
             Console.ReadLine();
+        }
+
+        private static void OperatorOverloading()
+        {
+            MathExample m1 = new MathExample();
+            MathExample m2 = new MathExample();
+            MathExample m3 = new MathExample();
+            MathExample m4 = new MathExample();
+            MathExample m5 = new MathExample();
+            int a = 10;
+            int b = 20;
+            a++;
+
+            var res = a + b;
+            var mathRes = m1 + m2 + m3 + m4 + m5;
+
+            m1++;
+            //m2++;
+
+            var equalResult = m1 == m2;
+            var notequalResult = m1 != m2;
+        }
+
+        private static void OverloadExample()
+        {
+            MathExample m1 = new MathExample();
+            var res1 = m1.Add(20);
+            var res2 = m1.Add(20, 30);
+            var res3 = m1.Add(20, 30, 40);
+        }
+
+        private static void ClassExample()
+        {
+            Human h1 = new Human();
+            // Human h2 = new Human();
+            Human h3 = new Human("Jay");
+            Human h2 = new Human(1, 2);
+            Human h4 = new Human("some name", 3, 4);
+            h1.Move();
+            h2.Move();
+            h3.Move();
+            h4.Move();
         }
 
         private static void CastingExamples()
@@ -141,11 +187,107 @@ namespace Broadway3PM
         }
     }
 
-    internal class Human
+    public class Human
     {
-        public const double pi = 3.1415;
+        public Human()
+        {
+            Name = "Babu";
+        }
+
+        public Human(string name)
+        {
+            Name = name;
+        }
+
+        public Human(int hand, int ears)
+        {
+            NumberofEars = ears;
+            NumberOfHands = hand;
+        }
+
+        public Human(string name, int hand, int ear)
+        {
+            Name = name;
+            NumberOfHands = hand;
+            NumberofEars = ear;
+        }
+
         public int NumberOfHands = 2; //Variable
         public int NumberofEars = 2; //Variable
         public string Name { get; set; } //Properties
+
+        public void Move()// void does not return
+        {
+        }
+
+        public void Move(string direction)
+        {
+        }
+
+        public void Move(string direction, string distance)
+        {
+        }
+    }
+
+    public class MathExample
+    {
+        public MathExample()
+        {
+            a = 10;
+            b = 30;
+            c = 40;
+        }
+
+        public int a;
+        public int b;
+        public int c;
+        public string str;
+
+        public static MathExample operator +(MathExample obj1, MathExample obj2)
+        {
+            return new MathExample()
+            {
+                a = obj1.a + obj2.a,
+                b = obj1.b + obj2.b,
+                c = obj1.c + obj2.c,
+                str = obj1.str + obj2.str
+            };
+        }
+
+        public static MathExample operator ++(MathExample m1)
+        {
+            return new MathExample()
+            {
+                a = m1.a + 2,
+                b = m1.b + 2,
+                c = m1.c + 2,
+                str = m1.str + " "
+            };
+        }
+
+        public static bool operator ==(MathExample m1, MathExample m2)
+        {
+            return (m1.a == m2.a) && (m1.b == m2.b) && (m1.c == m2.c) && (m1.str == m2.str);
+        }
+
+        public static bool operator !=(MathExample m1, MathExample m2)
+        {
+            return !((m1.a == m2.a) && (m1.b == m2.b) && (m1.c == m2.c) && (m1.str == m2.str));
+        }
+
+        public double Add(double a)
+        {
+            return a + 1;
+        }
+
+        public double Add(double a, double b)
+        {
+            return a + b;
+        }
+
+        public double Add(double a, double b, double c)
+        {
+            return a + b + c;
+        }
     }
 }
