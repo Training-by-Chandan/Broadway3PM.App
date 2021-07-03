@@ -33,6 +33,24 @@ namespace Broadway3PM
 
         private static void CastingExamples()
         {
+            //implicit casting - automatic
+            char a = 'A';
+            int b = a;
+            long c = b;
+            float d = c;
+            double e = d;
+
+            //explicit casting - manual
+            double f = 10.000423d;
+            float g = (float)f;
+            long h = (long)g;
+            int i = (int)h;
+            char j = (char)i;
+
+            //Convert Class - Type Conversion
+            Console.WriteLine("Enter a number");
+            var data = Console.ReadLine();
+            var converted = Convert.ToDouble(data);
         }
 
         private static void Branching()
@@ -121,5 +139,13 @@ namespace Broadway3PM
                 Console.WriteLine(item);
             }
         }
+    }
+
+    internal class Human
+    {
+        public const double pi = 3.1415;
+        public int NumberOfHands = 2; //Variable
+        public int NumberofEars = 2; //Variable
+        public string Name { get; set; } //Properties
     }
 }
