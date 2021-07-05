@@ -26,13 +26,81 @@ namespace Broadway3PM
 
                 //ClassExample();
 
-                OperatorOverloading();
+                //OperatorOverloading();
 
+                //PropertiesExample();
+
+                //IndexerExample();
+
+                DictionaryExample();
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
 
             Console.ReadLine();
+        }
+
+        private static void DictionaryExample()
+        {
+            Dictionary<int, string> days = new Dictionary<int, string>();
+            days.Add(1, "Sunday");
+            days.Add(2, "Sunday");
+            days.Add(3, "Tuesday");
+            days.Add(4, "Wednesday");
+            days.Add(5, "Thursday");
+            days.Add(6, "Friday");
+            days.Add(7, "Saturday");
+
+            Console.WriteLine("Enter the number of days");
+            var res = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("day => " + days[res]);
+        }
+
+        private static void IndexerExample()
+        {
+            Numbers n = new Numbers();
+            Console.WriteLine(n[0]);
+            Console.WriteLine(n[1]);
+            Console.WriteLine(n[2]);
+            Console.WriteLine(n[3]);
+            Console.WriteLine(n[4]);
+            Console.WriteLine(n[5]);
+
+            Days d = new Days();
+            Console.WriteLine(d[1]);
+            Console.WriteLine(d[2]);
+            Console.WriteLine(d[3]);
+            Console.WriteLine(d[4]);
+            Console.WriteLine(d[5]);
+            Console.WriteLine(d[6]);
+            Console.WriteLine(d[7]);
+        }
+
+        private static void PropertiesExample()
+        {
+            StudentClass sc = new StudentClass();
+            Console.WriteLine("Enter the First name:");
+            sc.FName = Console.ReadLine();
+
+            Console.WriteLine("Enter the Middle name:");
+            sc.MName = Console.ReadLine();
+
+            Console.WriteLine("Enter the Last name:");
+            sc.LName = Console.ReadLine();
+
+            Console.WriteLine("Value in FName is =>" + sc.FullName);
+
+            Console.WriteLine("Enter the Math Marks:");
+            sc.MathMarks = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("Enter the Science Marks:");
+            sc.ScienceMarks = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Math =>" + sc.MathMarks);
+            Console.WriteLine("Science =>" + sc.ScienceMarks);
+            Console.WriteLine("Total =>" + sc.TotalMarks);
+            Console.WriteLine("Percentage =>" + sc.Percentage);
+            Console.WriteLine("Division =>" + sc.Division);
         }
 
         private static void OperatorOverloading()
@@ -185,6 +253,167 @@ namespace Broadway3PM
                 Console.WriteLine(item);
             }
         }
+    }
+
+    public class StudentClass
+    {
+        public StudentClass()
+        {
+            this.minMarks = 0;
+            this.maxMarks = 100;
+        }
+
+        public StudentClass(double minMarks, double maxMarks)
+        {
+            this.minMarks = minMarks;
+            this.maxMarks = maxMarks;
+        }
+
+        private string fname = "";
+
+        public string FName
+        {
+            get
+            {
+                return fname;
+            }
+            set
+            {
+                fname = value;
+            }
+        }
+
+        private string lName;
+
+        public string LName
+        {
+            get { return lName; }
+            set { lName = value; }
+        }
+
+        private string mName;
+
+        public string MName
+        {
+            get { return mName; }
+            set { mName = value; }
+        }
+
+        public string FullName
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(MName))
+                {
+                    return FName + " " + LName;
+                }
+                else
+                {
+                    return FName + " " + MName + " " + LName;
+                }
+            }
+        }
+
+        private double minMarks = 0;
+        private double maxMarks = 100;
+
+        private double mathMarks;
+
+        public double MathMarks
+        {
+            get { return mathMarks; }
+            set
+            {
+                if (value < minMarks)
+                {
+                    mathMarks = minMarks;
+                }
+                else if (value > maxMarks)
+                {
+                    mathMarks = maxMarks;
+                }
+                else
+                {
+                    mathMarks = value;
+                }
+            }
+        }
+
+        private double scienceMarks;
+
+        public double ScienceMarks
+        {
+            get { return scienceMarks; }
+            set
+            {
+                if (value < minMarks)
+                {
+                    scienceMarks = minMarks;
+                }
+                else if (value > maxMarks)
+                {
+                    scienceMarks = maxMarks;
+                }
+                else
+                {
+                    scienceMarks = value;
+                }
+            }
+        }
+
+        public double TotalMarks
+        {
+            get
+            {
+                return this.mathMarks + this.scienceMarks;
+            }
+        }
+
+        public double Percentage
+        {
+            get
+            {
+                return this.TotalMarks / 2;
+            }
+        }
+
+        public string Division
+        {
+            get
+            {
+                var val = "";
+                if (this.Percentage >= 80)
+                {
+                    val = "Distinction";
+                }
+                else if (this.Percentage >= 60)
+                {
+                    val = "First Division";
+                }
+                else if (this.Percentage >= 45)
+                {
+                    val = "Second Division";
+                }
+                else
+                {
+                    val = "Failed";
+                }
+
+                return val;
+            }
+        }
+    }
+
+    public class Numbers
+    {
+        private string[] data = new string[] { "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten" };
+        public string this[int i] => data[i];
+    }
+
+    public class Days
+    {
+        private string[] data = new string[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+        public string this[int i] => data[i - 1];
     }
 
     public class Human
