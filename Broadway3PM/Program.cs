@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Broadway3PM.Inheritance;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -43,7 +44,19 @@ namespace Broadway3PM
             Console.ReadLine();
         }
 
-        private static void StaticAndNonStaticExample()
+        private static void InheritanceExample()
+        {
+            LivingThing l1 = new LivingThing();
+            Animal a1 = new Animal();
+            Plant p1 = new Plant();
+
+            l1 = a1;
+            l1 = new HumanBeing();
+            a1 = new HumanBeing();
+            a1 = (Animal)l1;
+        }
+
+        public static void StaticAndNonStaticExample()
         {
             ClassNonStatic c1 = new ClassNonStatic();
             ClassNonStatic c2 = new ClassNonStatic();
