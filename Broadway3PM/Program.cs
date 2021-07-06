@@ -32,12 +32,27 @@ namespace Broadway3PM
 
                 //IndexerExample();
 
-                DictionaryExample();
+                //DictionaryExample();
+
+                StaticAndNonStaticExample();
+
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
 
             Console.ReadLine();
+        }
+
+        private static void StaticAndNonStaticExample()
+        {
+            ClassNonStatic c1 = new ClassNonStatic();
+            ClassNonStatic c2 = new ClassNonStatic();
+            ClassNonStatic c3 = new ClassNonStatic();
+            var j = ClassNonStatic.j;
+            c1.Add();
+            var i = c1.i;
+            c2.Add();
+            c3.Add();
         }
 
         private static void DictionaryExample()
