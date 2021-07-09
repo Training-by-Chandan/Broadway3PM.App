@@ -35,7 +35,11 @@ namespace Broadway3PM
 
                 //DictionaryExample();
 
-                StaticAndNonStaticExample();
+                //StaticAndNonStaticExample();
+
+                //InheritanceExample();
+
+                PolymorphismExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
@@ -44,9 +48,27 @@ namespace Broadway3PM
             Console.ReadLine();
         }
 
+        public static void PolymorphismExample()
+        {
+            ////case 1
+            //LivingThing l1 = new LivingThing("");
+            //Animal a1 = new Animal();
+
+            //case 2
+            LivingThing l1 = new LivingThing("");
+            LivingThing a1 = new Animal();
+
+            //case 3 changed animal.repoiration to new
+
+            //case 4 change livingthing.respiration to virtual and animal.respiration to override
+
+            l1.Respiriration();
+            a1.Respiriration();
+        }
+
         private static void InheritanceExample()
         {
-            LivingThing l1 = new LivingThing();
+            LivingThing l1 = new LivingThing("");
             Animal a1 = new Animal();
             Plant p1 = new Plant();
 
@@ -54,6 +76,12 @@ namespace Broadway3PM
             l1 = new HumanBeing();
             a1 = new HumanBeing();
             a1 = (Animal)l1;
+
+            LivingThing lt1 = new LivingThing("");
+            LivingThing lt2 = new LivingThing("Some repiration process");
+
+            Animal an1 = new Animal();
+            Animal an2 = new Animal("");
         }
 
         public static void StaticAndNonStaticExample()

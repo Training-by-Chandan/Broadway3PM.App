@@ -8,6 +8,20 @@ namespace Broadway3PM.Inheritance
 {
     public class LivingThing
     {
+        public LivingThing(string respire)
+        {
+            this.Respire = respire;
+        }
+
+        public LivingThing(string respire, string consume)
+        {
+        }
+
+        public void Respiriration()
+        {
+            Console.WriteLine("I am from living thing class");
+        }
+
         protected string Respire { get; set; }
         public string Consume { get; set; }
         private string Reproduce { get; set; }
@@ -15,6 +29,23 @@ namespace Broadway3PM.Inheritance
 
     public class Animal : LivingThing
     {
+        public Animal() : base("")
+        {
+        }
+
+        public Animal(string respire) : base(respire)
+        {
+        }
+
+        public Animal(string respire, string consume) : base(respire, consume)
+        {
+        }
+
+        public new void Respiriration()
+        {
+            Console.WriteLine("I am from Animal class");
+        }
+
         private void test()
         {
             this.Consume = "Plant";
@@ -25,6 +56,10 @@ namespace Broadway3PM.Inheritance
 
     public class Plant : LivingThing
     {
+        public Plant() : base(null)
+        {
+        }
+
         private void test()
         {
             this.Consume = "Sunlight, minerals";
@@ -35,9 +70,33 @@ namespace Broadway3PM.Inheritance
 
     public sealed class HumanBeing : Animal
     {
+        public HumanBeing()
+        {
+        }
+
         private void test()
         {
         }
+    }
+
+    [Serializable]
+    public class MyException : Exception
+    {
+        public MyException()
+        {
+        }
+
+        public MyException(string message) : base(message)
+        {
+        }
+
+        public MyException(string message, Exception inner) : base(message, inner)
+        {
+        }
+
+        protected MyException(
+          System.Runtime.Serialization.SerializationInfo info,
+          System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
     }
 
     //public class NewHuman : HumanBeing
