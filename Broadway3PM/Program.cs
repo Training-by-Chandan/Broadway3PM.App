@@ -41,13 +41,43 @@ namespace Broadway3PM
 
                 //PolymorphismExample();
 
-                InterfaceExample();
+                //InterfaceExample();
+
+                AbstractExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
 
             Console.ReadLine();
+        }
+
+        private static ShapeAbs sabs;
+
+        private static void AbstractExample()
+        {
+            Console.WriteLine("Press 1 for Square\n2 for rectangle");
+            var choice = Console.ReadLine();
+            switch (choice)
+            {
+                case "1":
+                    sabs = new SquareAbs();
+                    break;
+
+                case "2":
+                    sabs = new RectangleAbs();
+                    break;
+
+                default:
+                    break;
+            }
+
+            sabs.GetInput();
+            sabs.Perimeter();
+            sabs.Area();
+
+            var area = sabs.AreaOfShape;
+            var perimeter = sabs.PerimeterOfShape;
         }
 
         private static IShape s1;
