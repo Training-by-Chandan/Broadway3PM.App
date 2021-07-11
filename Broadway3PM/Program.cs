@@ -43,13 +43,43 @@ namespace Broadway3PM
 
                 //InterfaceExample();
 
-                AbstractExample();
+                //AbstractExample();
+
+                EnumExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
 
             Console.ReadLine();
+        }
+
+        private static void EnumExample()
+        {
+            var d1 = DaysEnum.Sunday;
+            Console.WriteLine($"Day in enum= {d1}");
+            Console.WriteLine($"Day in Int = {(int)d1}");
+            //1 for reactangle
+
+            //switch (d1)
+            //{
+            //    case DaysEnum.Monday:
+            //        break;
+            //    case DaysEnum.Tuesday:
+            //        break;
+            //    case DaysEnum.Sunday:
+            //        break;
+            //    case DaysEnum.Wednesday:
+            //        break;
+            //    case DaysEnum.Thursday:
+            //        break;
+            //    case DaysEnum.Friday:
+            //        break;
+            //    case DaysEnum.Saturday:
+            //        break;
+            //    default:
+            //        break;
+            //}
         }
 
         private static ShapeAbs sabs;
