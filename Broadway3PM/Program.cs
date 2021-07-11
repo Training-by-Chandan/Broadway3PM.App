@@ -39,13 +39,47 @@ namespace Broadway3PM
 
                 //InheritanceExample();
 
-                PolymorphismExample();
+                //PolymorphismExample();
+
+                InterfaceExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
 
             Console.ReadLine();
+        }
+
+        private static IShape s1;
+        private static IArea a;
+        private static IPerimeter p;
+        private static IGetInput g;
+
+        private static void InterfaceExample()
+        {
+            Console.WriteLine("Press 1 for Square\n2 for Rectangle");
+            var choice = Console.ReadLine();
+            switch (choice)
+            {
+                case "1":
+                    s1 = new Square();
+                    break;
+
+                case "2":
+                    s1 = new Rectangle();
+                    break;
+
+                case "3":
+                    s1 = new Circle();
+                    break;
+
+                default:
+                    break;
+            }
+
+            s1.GetInput();
+            s1.Perimeter();
+            s1.Area();
         }
 
         public static void PolymorphismExample()
