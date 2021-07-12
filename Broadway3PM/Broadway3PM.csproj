@@ -47,6 +47,7 @@
     <Compile Include="EnumExample.cs" />
     <Compile Include="Inheritance\LivingThing.cs" />
     <Compile Include="IShape.cs" />
+    <Compile Include="JasmineException.cs" />
     <Compile Include="PassBy.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

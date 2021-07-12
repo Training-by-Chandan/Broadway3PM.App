@@ -47,13 +47,61 @@ namespace Broadway3PM
 
                 //EnumExample();
 
-                PassByExamples();
+                //PassByExamples();
+
+                //ExceptionExampleImplementation();
+
+                ApplicationException();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
 
             Console.ReadLine();
+        }
+
+        public static void ApplicationException()
+        {
+            try
+            {
+                Console.Write("Enter the string :");
+                var str = Console.ReadLine();
+
+                var returnString = ExceptionExample.AnalyzeString(str);
+            }
+            catch (JasmineException ex)
+            {
+                Console.WriteLine("Jasmine Exception called");
+            }
+            catch (JayException ex)
+            {
+                Console.WriteLine("Jay ko Exception called");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Type of Exception = {ex.GetType()}");
+            }
+            finally
+            {
+                Console.WriteLine("Finally all are over");
+            }
+        }
+
+        public static void ExceptionExampleImplementation()
+        {
+            try
+            {
+                int[] a = new int[5];
+                a[0] = 10;
+                a[1] = 11;
+                a[2] = 11;
+                a[3] = 11;
+                a[4] = 11;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public static void PassByExamples()
