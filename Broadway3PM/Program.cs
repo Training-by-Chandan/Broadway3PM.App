@@ -45,13 +45,31 @@ namespace Broadway3PM
 
                 //AbstractExample();
 
-                EnumExample();
+                //EnumExample();
+
+                PassByExamples();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
 
             Console.ReadLine();
+        }
+
+        public static void PassByExamples()
+        {
+            int x = 10;
+            int y = 5;
+            PassBy.AddByValue(x, y);
+            Console.WriteLine($"x = {x}, y = {y}");
+            PassBy.AddByReference(ref x, ref y);
+            Console.WriteLine($"x = {x}, y = {y}");
+            PassBy.AddByValue(x, y);
+            Console.WriteLine($"x = {x}, y = {y}");
+            PassBy.AddByReference(ref x, ref y);
+            Console.WriteLine($"x = {x}, y = {y}");
+            int res = 0;
+            PassBy.AddInOut(x, y, out res);
         }
 
         private static void EnumExample()
