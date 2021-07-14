@@ -53,13 +53,36 @@ namespace Broadway3PM
 
                 //ApplicationException();
 
-                DelegateExample();
+                //DelegateExample();
+
+                CustomStackexample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
 
             Console.ReadLine();
+        }
+
+        public static void CustomStackexample()
+        {
+            CustomStack cs = new CustomStack();
+            cs.Push("item 1");
+            cs.Push("item 2");
+            cs.Push("item 3");
+            cs.Push("item 4");
+            cs.Display();
+            cs.Pop();
+            cs.Pop();
+            Console.WriteLine("After Poping");
+            cs.Display();
+
+            cs.Push("Item 5");
+            cs.Push("Item 6");
+            cs.Push("Item 7");
+            cs.Push("Item 8");
+            Console.WriteLine("After Pushing");
+            cs.Display();
         }
 
         public static void DelegateExample()
