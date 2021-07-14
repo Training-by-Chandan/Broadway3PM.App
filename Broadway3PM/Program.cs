@@ -51,13 +51,44 @@ namespace Broadway3PM
 
                 //ExceptionExampleImplementation();
 
-                ApplicationException();
+                //ApplicationException();
+
+                DelegateExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
 
             Console.ReadLine();
+        }
+
+        public static void DelegateExample()
+        {
+            Delegs.AddDeleg d1 = new Delegs.AddDeleg(AddNumbers);
+
+            d1 += (int x, int y) =>
+            {
+                Console.WriteLine($"Sum from lambda expression is {x + y}");
+                return 10;
+            };
+
+            d1 += AddNumbersv2;
+
+            Console.WriteLine(d1(30, 10));
+        }
+
+        private static int AddNumbers(int a, int b)
+        {
+            Console.WriteLine("Calling Add numbers");
+            Console.WriteLine($"Sum is {a + b}");
+            return 0;
+        }
+
+        private static int AddNumbersv2(int p, int q)
+        {
+            Console.WriteLine("Calling Add numbers Version 2");
+            Console.WriteLine($"Sum is {q + p}");
+            return p + q;
         }
 
         public static void ApplicationException()
