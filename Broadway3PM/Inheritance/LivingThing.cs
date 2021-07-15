@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Broadway3PM.Inheritance
 {
-    public class LivingThing
+    public class LivingThing : ITemplated
     {
         public LivingThing(string respire)
         {

@@ -1,4 +1,5 @@
 ﻿using Broadway3PM.Inheritance;
+using Broadway3PM.Partial;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,13 +56,79 @@ namespace Broadway3PM
 
                 //DelegateExample();
 
-                CustomStackexample();
+                //CustomStackexample();
+
+                //CustomStackDynamicExample();
+
+                //TemplateExample();
+
+                ExtensionExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
 
             Console.ReadLine();
+        }
+
+        private static void ExtensionExample()
+        {
+            int i = 10;
+            int j = 20;
+            var res = i.Equals(j);
+            var resSum = i.Add(j);
+            Console.WriteLine($"Sum => {resSum}");
+            Console.WriteLine($"Sum1 => {i.AddByNumber()}");
+            Console.WriteLine($"Sum1 => {i.AddByNumber(5)}");
+
+            string s = "My name is chandan";
+            s = s.AddDot();
+            Console.WriteLine(s);
+        }
+
+        private static void PartialClassExample()
+        {
+            PClass pobj = new PClass();
+            pobj.FunctionOne();
+            pobj.Test();
+        }
+
+        public static void TemplateExample()
+        {
+            TemplateClass<string, int> tObj1 = new TemplateClass<string, int>();
+            tObj1.Function1("", 0, "");
+            TemplateClass<int, string> tObj2 = new TemplateClass<int, string>();
+            tObj2.Function1(1, "", 1);
+
+            ContraintsTemplateClass<HumanBeing> ctc = new ContraintsTemplateClass<HumanBeing>();
+            ContraintsTemplateClass<Delegs> ctc1 = new ContraintsTemplateClass<Delegs>();
+        }
+
+        public static void CustomStackTemplated()
+        {
+            CustomStackDynamicTemplated<string> csd = new CustomStackDynamicTemplated<string>();
+            csd.Push("");
+            CustomStackDynamicTemplated<int> csd1 = new CustomStackDynamicTemplated<int>();
+            csd1.Push(1);
+        }
+
+        public static void CustomStackDynamicExample()
+        {
+            CustomStackDynamic csd = new CustomStackDynamic();
+            csd.Push("One");
+            csd.Push("Two");
+            csd.Push("Three");
+            csd.Display();
+            csd.Pop();
+            csd.Pop();
+            Console.WriteLine("After poping 2 times");
+            csd.Display();
+            csd.Push("Four");
+            csd.Push("Five");
+            csd.Push("Six");
+            csd.Push("Seven");
+            Console.WriteLine("After pushing some items");
+            csd.Display();
         }
 
         public static void CustomStackexample()

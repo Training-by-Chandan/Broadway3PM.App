@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Broadway3PM
 {
-    public class Delegs
+    public class Delegs : ITemplated
     {
         public delegate int AddDeleg(int a, int b); // void <func name>(<parameters signature>)
 
