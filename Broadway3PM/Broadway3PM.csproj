@@ -51,6 +51,7 @@
     <Compile Include="IntExtension.cs" />
     <Compile Include="IShape.cs" />
     <Compile Include="JasmineException.cs" />
+    <Compile Include="MultiThread.cs" />
     <Compile Include="Partial\PartialClass.cs" />
     <Compile Include="PassBy.cs" />
     <Compile Include="Program.cs" />

@@ -62,13 +62,34 @@ namespace Broadway3PM
 
                 //TemplateExample();
 
-                ExtensionExample();
+                //ExtensionExample();
+
+                //MultiThreadingExample();
+
+                //AsynchronousExample();
+
+                CancellationImplementation();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
 
             Console.ReadLine();
+        }
+
+        private static void CancellationImplementation()
+        {
+            CancellationExample.MainFunction();
+        }
+
+        private static void AsynchronousExample()
+        {
+            MultiTask.MainFunction();
+        }
+
+        private static void MultiThreadingExample()
+        {
+            MultiThread.MainFunction();
         }
 
         private static void ExtensionExample()
