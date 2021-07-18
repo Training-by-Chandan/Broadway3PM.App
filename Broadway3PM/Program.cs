@@ -68,13 +68,23 @@ namespace Broadway3PM
 
                 //AsynchronousExample();
 
-                CancellationImplementation();
+                //CancellationImplementation();
+
+                GenericCollectionExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
 
             Console.ReadLine();
+        }
+
+        private static void GenericCollectionExample()
+        {
+            //GenericCollectionClass.ListExample();
+            //GenericCollectionClass.ListExample2();
+
+            GenericCollectionClass.ListJoinExample();
         }
 
         private static void CancellationImplementation()
