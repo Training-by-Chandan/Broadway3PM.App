@@ -70,13 +70,20 @@ namespace Broadway3PM
 
                 //CancellationImplementation();
 
-                GenericCollectionExample();
+                //GenericCollectionExample();
+
+                FileOperationExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
 
             Console.ReadLine();
+        }
+
+        private static void FileOperationExample()
+        {
+            FileOperation.FilereadWrite();
         }
 
         private static void GenericCollectionExample()

@@ -48,6 +48,7 @@
     <Compile Include="CustomStack.cs" />
     <Compile Include="Delegs.cs" />
     <Compile Include="EnumExample.cs" />
+    <Compile Include="FileOperation.cs" />
     <Compile Include="Inheritance\LivingThing.cs" />
     <Compile Include="IntExtension.cs" />
     <Compile Include="IShape.cs" />
